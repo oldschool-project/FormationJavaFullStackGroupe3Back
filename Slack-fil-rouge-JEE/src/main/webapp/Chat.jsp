@@ -11,8 +11,8 @@
 	<header>
 		<h1>Chat API</h1>
 		<menu>
-			<menu-item>Username</menu-item>
-			<menu-item>Disconnect</menu-item>
+			<menu-item><c:out value="${sessionScope.username}"/></menu-item>
+			<menu-item><a href="./disconnect">Disconnect</a></menu-item>
 		</menu>
 	</header>
 	<aside>
@@ -27,7 +27,6 @@
 <c:out value="${message.content}"/>
 </c:forEach>
 				</textarea>
-			</p>
 			<p><input type="text" name="message"/></p>
 			<p><input type="submit" value="Send" /></p>
 		</form>

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.slack.dao.ChatApiDAO;
 import com.slack.entity.Message;
-import com.slack.entity.User;
 
 /**
  * Servlet implementation class MessageController
@@ -58,8 +57,9 @@ public class MessageController extends HttpServlet {
 		String msg = request.getParameter("message");
 
 		if (!"".equals(msg)) {
-			Message m = new Message(msg, new Date(), new Date(), (Integer) request.getSession().getAttribute("userId"),
-					(Integer) request.getSession().getAttribute("channelId"));
+			Message m = new Message(msg, new Date(), new Date(),
+					(Integer) request.getSession().getAttribute("channelId"),
+					(Integer) request.getSession().getAttribute("userId"));
 			try {
 				ChatApiDAO.getInstance().addMessage(m);
 			} catch (Exception e) {

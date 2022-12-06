@@ -87,4 +87,10 @@ public class Message {
 		this.username = username;
 	}
 
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", content=" + content + ", creationDate=" + creationDate + ", updateDate="
+				+ updateDate + ", channelId=" + channelId + ", userId=" + userId + ", username=" + username + "]";
+	}
+
 }

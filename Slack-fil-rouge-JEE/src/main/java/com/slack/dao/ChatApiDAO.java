@@ -291,7 +291,9 @@ public class ChatApiDAO {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		String query = "INSERT INTO messages (content, created_at, updated_at, canal_id, user_id) VALUES (?,?,?,?,?)";
-
+		
+		System.out.println("message m = " + m);
+		
 		try {
 			conn = getConnection();
 			stmt = conn.prepareStatement(query);
