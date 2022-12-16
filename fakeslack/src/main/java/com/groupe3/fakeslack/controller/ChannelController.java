@@ -2,7 +2,6 @@ package com.groupe3.fakeslack.controller;
 
 import com.groupe3.fakeslack.entity.Channel;
 import com.groupe3.fakeslack.service.IServiceChannel;
-import com.groupe3.fakeslack.service.ServiceChannelImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -4,7 +4,6 @@ import com.groupe3.fakeslack.entity.Channel;
 import com.groupe3.fakeslack.repository.IChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -21,6 +20,15 @@ public class ServiceChannelImpl implements IServiceChannel {
     @Override
     public Channel getById(Integer id) {
         return repository.findById(id).get();
+
+    @Override
+    public List<Channel> getAll() {
+        return null;
+    }
+
+    @Override
+    public Channel getById(int id) {
+        return null;
     }
 
     @Override

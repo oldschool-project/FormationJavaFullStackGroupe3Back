@@ -3,7 +3,8 @@ package com.groupe3.fakeslack.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="channels")
+@Table(name = "channels")
+
 public class Channel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
