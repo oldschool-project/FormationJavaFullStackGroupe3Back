@@ -20,16 +20,8 @@ public class ServiceChannelImpl implements IServiceChannel {
     @Override
     public Channel getById(Integer id) {
         return repository.findById(id).get();
-
-    @Override
-    public List<Channel> getAll() {
-        return null;
     }
 
-    @Override
-    public Channel getById(int id) {
-        return null;
-    }
 
     @Override
     public String create(Channel channel) {
