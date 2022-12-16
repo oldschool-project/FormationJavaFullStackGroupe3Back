@@ -3,9 +3,9 @@ package com.groupe3.fakeslack.controller;
 import com.groupe3.fakeslack.entity.Message;
 import com.groupe3.fakeslack.service.IServiceMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -17,38 +17,60 @@ public class MessageController {
 
 
     @GetMapping("")
-    public List<Message> getAll() {
+    public ResponseEntity<List<Message>> getAll() {
 
-        return service.getAll();
+        List<Message> messages = service.getAll();
+
+        if(messages == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(messages);
 
     }
 
     @GetMapping("/{id}")
-    public Message getById(@PathVariable("id") int id) {
+    public ResponseEntity<Message> getById(@PathVariable("id") int id) {
 
-        return service.getById(id);
+        Message message = service.getById(id);
+
+        if(message == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(message);
 
     }
 
     @PostMapping("")
-    public void addMessage(@RequestBody Message message) {
+    public ResponseEntity<String> addMessage(@RequestBody Message message) {
 
-        service.create(message);
+        String createdMessage = service.create(message);
+
+        return ResponseEntity.ok().body(createdMessage);
 
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMessage(@PathVariable("id") int id) {
+    public ResponseEntity<String> deleteMessage(@PathVariable("id") int id) {
 
-        service.delete(id);
+        String deletedMessage = service.delete(id);
+
+        return ResponseEntity.ok().body(deletedMessage);
 
     }
 
     @PutMapping("")
-    public void updateMessage(@RequestBody Message message) {
-        
-        service.update(message);
+    public ResponseEntity<String> updateMessage(@RequestBody Message message) {
+
+        String updatedMessage = service.update(message);
+
+        if(updatedMessage == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(updatedMessage);
 
     }
+
+
+
 
 }
