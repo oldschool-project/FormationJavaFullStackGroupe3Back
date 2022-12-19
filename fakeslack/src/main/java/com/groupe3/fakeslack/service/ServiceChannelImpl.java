@@ -4,6 +4,7 @@ import com.groupe3.fakeslack.entity.Channel;
 import com.groupe3.fakeslack.repository.IChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service

@@ -9,6 +9,8 @@ import javax.persistence.Table;
 public class UserChannel {
 
     @Id
+    private int id;
+
     private int userId;
 
     private int channelId;
@@ -19,6 +21,20 @@ public class UserChannel {
     public UserChannel(int userId, int channelId) {
         this.userId = userId;
         this.channelId = channelId;
+    }
+
+    public UserChannel(int id, int userId, int channelId) {
+        this.id = id;
+        this.userId = userId;
+        this.channelId = channelId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {
