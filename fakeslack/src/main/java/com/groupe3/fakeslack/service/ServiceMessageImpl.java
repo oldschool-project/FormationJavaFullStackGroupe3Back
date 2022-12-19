@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ServiceMessageImpl implements IServiceMessage{
+public class ServiceMessageImpl implements IServiceMessage {
 
 
     @Autowired
@@ -16,46 +16,61 @@ public class ServiceMessageImpl implements IServiceMessage{
 
     @Override
     public List<Message> getAll() {
+
         return repository.findAll();
+
     }
 
     @Override
     public Message getById(Integer id) {
-        return repository.findById(id).get();
+
+        return repository.findById(id).orElse(null);
+
     }
 
     @Override
     public String create(Message message) {
-        repository.save(message);
-        return "message créée";
+
+        if (repository.save(message) != null) {
+            return "Message created successfully";
+        } else {
+            return "Message does not created";
+        }
+
     }
 
     @Override
     public String update(Message message) {
 
         Message messageUpdate = getById(message.getId());
-
         messageUpdate.setText(message.getText());
+
         repository.save(messageUpdate);
-        return "message modifié";
+        return "Message updated successfully";
+
     }
 
     @Override
     public String delete(int id) {
 
-        if(repository.findById(id).isPresent()){
+        if (repository.findById(id).isPresent()) {
             repository.deleteById(id);
         } else {
-            return "This message is not delete";
+            return "Message does not deleted because message does not exist or not found";
         }
-        return "This message is delete";
+        return "Message deleted successfully";
+
     }
 
     public IMessageRepository getRepository() {
+
         return repository;
+
     }
 
     public void setRepository(IMessageRepository repository) {
+
         this.repository = repository;
+
     }
 }
