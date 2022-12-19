@@ -11,14 +11,17 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private IServiceUser service;
+
     @GetMapping("")
     public ResponseEntity<?> getAllUser() {
         return service.getAll();
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable("id") int id) {
         return service.getById(id);
     }
+
     @PostMapping("")
     public ResponseEntity<String> addUser(@RequestBody User user) {
         return service.create(user);

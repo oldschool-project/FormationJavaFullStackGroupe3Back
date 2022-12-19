@@ -27,6 +27,9 @@ public class SecurityConfig {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
+
+        System.out.println("Toto is coming");
+
         auth.inMemoryAuthentication().withUser("user")
                 .password(PasswordEncoderFactories.createDelegatingPasswordEncoder().encode("password")).roles("USER");
     }
@@ -36,22 +39,20 @@ public class SecurityConfig {
 
         http
                 .csrf().disable()
-                .authorizeRequests().anyRequest()
-                .authenticated()
+                .authorizeRequests()
+                .antMatchers("/channel", "/message").access("hasRole('USER')")
+                .antMatchers("/user", "/**").hasRole("ADMIN")
+
                 .and()
+
                 .httpBasic()
+
                 .and()
+
                 .logout(logout -> logout.logoutUrl("/logout")
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
-                    .deleteCookies("JSESSIONID")
-                    .addLogoutHandler((request, response, authentication) -> {
-                        try {
-                            request.logout();
-                        } catch (ServletException e) {
-
-                        }
-                    }));
+                    .deleteCookies("JSESSIONID"));
 
         return http.build();
     }
