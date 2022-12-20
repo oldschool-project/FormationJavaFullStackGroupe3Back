@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,7 +67,7 @@ public class ServiceUserImpl implements IServiceUser {
                 return ResponseEntity.badRequest()
                         .body("this user already exists");
             }
-
+            user.setPassword(PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(user.getPassword()));
             repository.save(user);
             return ResponseEntity.ok("User successfully created");
         } catch (DataIntegrityViolationException ex) {
