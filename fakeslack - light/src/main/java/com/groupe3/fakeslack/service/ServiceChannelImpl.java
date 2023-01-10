@@ -17,9 +17,6 @@ public class ServiceChannelImpl implements IServiceChannel {
     @Autowired
     private IChannelRepository repository;
 
-/*    @Autowired
-    private ServiceUserImpl serviceUser;
-*/
     @Autowired
     private ServiceMessageImpl serviceMessage;
 
@@ -37,18 +34,6 @@ public class ServiceChannelImpl implements IServiceChannel {
     public ResponseEntity<List<Channel>> findByUserId(int id) {
         return ResponseEntity.ok(repository.findByUsers_Id(id));
     }
-
-    @Override
-    public ResponseEntity<List<Channel>> findByMessageId(int id) {
-        return ResponseEntity.ok(repository.findByMessages_Id(id));
-    }
-
-/*    @Override
-    public ResponseEntity<List<User>> getUsersForChannel(int id) { return serviceUser.getUsersForChannel(id); }
-*/
-    @Override
-    public ResponseEntity<List<Message>> getMessagesForChannel(int id) { return serviceMessage.findByChannelId(id); }
-
 
     @Override
     public ResponseEntity<String> create(Channel channel) {

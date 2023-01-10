@@ -11,6 +11,7 @@ com\groupe3\fakeslack\controller\MessageController.class
 com\groupe3\fakeslack\repository\IUserRepository.class
 com\groupe3\fakeslack\FakeslackApplication.class
 com\groupe3\fakeslack\service\ServiceChannelImpl.class
+com\groupe3\fakeslack\configuration\WebConfig.class
 com\groupe3\fakeslack\service\IServiceUser.class
 com\groupe3\fakeslack\service\ServiceMessageImpl.class
 com\groupe3\fakeslack\entity\Channel.class

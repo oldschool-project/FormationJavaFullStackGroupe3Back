@@ -17,12 +17,6 @@ public class ServiceMessageImpl implements IServiceMessage {
     @Autowired
     private IMessageRepository repository;
 
-/*    @Autowired
-    private ServiceUserImpl userService;
-
-    @Autowired
-    private ServiceChannelImpl channelService;*/
-
     @Override
     public ResponseEntity<List<Message>> getAll() {
 
@@ -36,45 +30,6 @@ public class ServiceMessageImpl implements IServiceMessage {
         return ResponseEntity.ok(repository.findById(id).orElse(null));
 
     }
-
-    @Override
-    public ResponseEntity<List<Message>> findByChannelId(int id) {
-        List<Message> messages = repository.findByChannelId(id);
-        if (messages.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(messages);
-    }
-
-    @Override
-    public ResponseEntity<List<Message>> findByUserId(int id) {
-        List<Message> messages = repository.findByUserId(id);
-        if (messages.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(messages);
-    }
-
-/*    @Override
-    public ResponseEntity<User> getUserForMessage(int id) {
-
-        Message message = repository.findById(id).orElse(null);
-        if (message == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return userService.getById(message.getUser().getId());
-    }
-
-    @Override
-    public ResponseEntity<Channel> getChannelForMessage(int id) {
-
-        Message message = repository.findById(id).orElse(null);
-        if (message == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return channelService.getById(message.getChannel().getId());
-    }*/
-
 
     @Override
     public ResponseEntity<String> create(Message message) {

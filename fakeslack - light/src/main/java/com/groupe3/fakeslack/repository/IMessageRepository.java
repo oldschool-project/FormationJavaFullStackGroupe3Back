@@ -9,8 +9,4 @@ import java.util.List;
 
 public interface IMessageRepository extends JpaRepository<Message, Integer> {
 
-    //Message findByText(String text);
-    List<Message> findByUserId(int id);
-
-    List<Message> findByChannelId(int id);
 }

@@ -18,14 +18,4 @@ public interface IServiceMessage {
     public ResponseEntity<String> update(Message message);
 
     public ResponseEntity<String> delete(int id);
-
-    public ResponseEntity<List<Message>> findByChannelId(int channelId);
-
-    public ResponseEntity<List<Message>> findByUserId(int userId);
-
-/*    public ResponseEntity<User> getUserForMessage(int id);
-
-    public ResponseEntity<Channel> getChannelForMessage(int id);*/
-
-
 }

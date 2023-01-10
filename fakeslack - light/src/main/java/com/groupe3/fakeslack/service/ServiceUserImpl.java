@@ -19,10 +19,6 @@ public class ServiceUserImpl implements IServiceUser {
     @Autowired
     ServiceChannelImpl serviceChannel;
 
-/*
-    @Autowired
-    ServiceMessageImpl serviceMessage;*/
-
     @Override
     public ResponseEntity<List<User>> getAll() {
         //try {
