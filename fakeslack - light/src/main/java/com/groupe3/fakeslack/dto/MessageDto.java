@@ -1,5 +1,7 @@
 package com.groupe3.fakeslack.dto;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class MessageDto {
@@ -7,13 +9,23 @@ public class MessageDto {
     private int id;
     private String content;
     private String username;
-    private Date date;
+    private LocalDateTime date;
 
-    public MessageDto(int id, String content, String username, Date date) {
+    private int channelId;
+
+    public MessageDto(int id, String content, String username, LocalDateTime date, int channelId) {
         this.id = id;
         this.content = content;
         this.username = username;
         this.date = date;
+        this.channelId = channelId;
+    }
+
+    public MessageDto(String content, String username, LocalDateTime date, int channelId) {
+        this.content = content;
+        this.username = username;
+        this.date = date;
+        this.channelId = channelId;
     }
 
     public MessageDto() {
@@ -43,11 +55,19 @@ public class MessageDto {
         this.username = username;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public int getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(int channelId) {
+        this.channelId = channelId;
     }
 }

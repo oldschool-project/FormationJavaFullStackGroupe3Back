@@ -11,11 +11,13 @@ public interface IServiceMessage {
 
     public ResponseEntity<List<Message>> getAll();
 
-    public ResponseEntity<Message> getById(int id);
+    public Message getById(int id);
 
     public ResponseEntity<String> create(Message message);
 
     public ResponseEntity<String> update(Message message);
 
     public ResponseEntity<String> delete(int id);
+
+    public List<Message> getAllByChannelId(int id);
 }

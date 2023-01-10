@@ -25,9 +25,9 @@ public class ServiceMessageImpl implements IServiceMessage {
     }
 
     @Override
-    public ResponseEntity<Message> getById(int id) {
+    public Message getById(int id) {
 
-        return ResponseEntity.ok(repository.findById(id).orElse(null));
+        return repository.findById(id).get();
 
     }
 
@@ -42,7 +42,7 @@ public class ServiceMessageImpl implements IServiceMessage {
     @Override
     public ResponseEntity<String> update(Message message) {
         if (!repository.existsById(message.getId())) {
-            return ResponseEntity.badRequest().body("An user with the specified id does not exist");
+            return ResponseEntity.badRequest().body("A user with the specified id does not exist");
         }
         repository.save(message);
         return ResponseEntity.ok("Message updated successfully");
@@ -60,4 +60,11 @@ public class ServiceMessageImpl implements IServiceMessage {
         return ResponseEntity.ok("Message deleted successfully");
 
     }
+
+    @Override
+    public List<Message> getAllByChannelId(int id) {
+        return repository.findByChannelId(id);
+    }
+
+
 }

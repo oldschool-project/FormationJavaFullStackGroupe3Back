@@ -32,7 +32,6 @@ public class ServiceUserImpl implements IServiceUser {
         //   return ResponseEntity.internalServerError()
         //           .body("An error occurred while trying to retrieve the users: " + ex.getMessage());
         //}
-
     }
 
 
@@ -135,7 +134,7 @@ public class ServiceUserImpl implements IServiceUser {
     public ResponseEntity<String> update(User user) {
         //try {
         if (!repository.existsById(user.getId())) {
-            return ResponseEntity.badRequest().body("An user with the specified id does not exist");
+            return ResponseEntity.badRequest().body("A user with the specified id does not exist");
         }
 
         // if (repository.findOne(Example.of(user)).isPresent()) {

@@ -17,6 +17,10 @@ public class Message {
 
     private LocalDateTime dateOfModification;
 
+    private int userId;
+
+    private int channelId;
+
     public Message() {
     }
 
@@ -27,10 +31,11 @@ public class Message {
         this.dateOfModification = dateOfModification;
     }
 
-    public Message(String text, LocalDateTime dateOfCreation, LocalDateTime dateOfModification) {
+    public Message(String text, LocalDateTime dateOfCreation, int userId, int channelId) {
         this.text = text;
+        this.userId = userId;
+        this.channelId = channelId;
         this.dateOfCreation = dateOfCreation;
-        this.dateOfModification = dateOfModification;
     }
 
     public Message(Message message) {
@@ -38,6 +43,8 @@ public class Message {
         this.text = message.text;
         this.dateOfCreation = message.dateOfCreation;
         this.dateOfModification = message.dateOfModification;
+        this.userId = message.getUserId();
+        this.channelId = message.getChannelId();
     }
 
     public int getId() {
@@ -71,6 +78,22 @@ public class Message {
 
     public void setDateOfModification(LocalDateTime dateOfModification) {
         this.dateOfModification = dateOfModification;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(int channelId) {
+        this.channelId = channelId;
     }
 
     @Override
