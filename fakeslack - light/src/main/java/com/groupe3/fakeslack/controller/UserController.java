@@ -7,13 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("users")
 public class UserController {
     @Autowired
     private IServiceUser service;
 
     @GetMapping("")
     public ResponseEntity<?> getAllUser() {
+        System.out.println("It works");
         return service.getAll();
     }
 
