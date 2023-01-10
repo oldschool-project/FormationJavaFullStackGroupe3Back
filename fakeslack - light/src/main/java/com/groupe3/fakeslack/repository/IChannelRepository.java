@@ -9,8 +9,6 @@ import java.util.List;
 
 @Repository
 public interface IChannelRepository extends JpaRepository<Channel, Integer> {
-    Channel findByName(String name);
-    List<Channel> findByMessages_Id(int id);
-    List<Channel> findByUsers_Id(int id);
+
 
 }

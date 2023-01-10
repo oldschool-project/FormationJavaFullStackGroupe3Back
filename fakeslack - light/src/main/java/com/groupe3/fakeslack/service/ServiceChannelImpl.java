@@ -30,10 +30,6 @@ public class ServiceChannelImpl implements IServiceChannel {
         return ResponseEntity.ok(repository.findById(id).get());
     }
 
-    @Override
-    public ResponseEntity<List<Channel>> findByUserId(int id) {
-        return ResponseEntity.ok(repository.findByUsers_Id(id));
-    }
 
     @Override
     public ResponseEntity<String> create(Channel channel) {

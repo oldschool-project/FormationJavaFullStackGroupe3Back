@@ -22,7 +22,4 @@ public interface IServiceUser {
 
     public ResponseEntity<User> findByUsername(String name);
 
-    public ResponseEntity<List<Channel>> getChannelsForUser(int id);
-
-
 }

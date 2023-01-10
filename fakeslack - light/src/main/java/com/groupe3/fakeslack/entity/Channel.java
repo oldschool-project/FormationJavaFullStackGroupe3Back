@@ -12,10 +12,6 @@ public class Channel {
     private int id;
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_channel", joinColumns = @JoinColumn(name = "channel_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
-
     @OneToMany
     @JoinColumn(name = "message_id", referencedColumnName = "id")
     private List<Message> messages;
@@ -36,7 +32,6 @@ public class Channel {
     public Channel(Channel channel) {
         this.id = channel.id;
         this.name = channel.name;
-        this.users = channel.users;
     }
 
 
@@ -56,13 +51,6 @@ public class Channel {
         this.name = name;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
     public List<Message> getMessages() {
         return messages;
@@ -74,7 +62,7 @@ public class Channel {
 
     @Override
     public String toString() {
-        return "Channel{" + "id=" + id + ", name='" + name + '\'' + ", users=" + users + '}';
+        return "Channel{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 
 }

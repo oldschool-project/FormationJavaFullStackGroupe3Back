@@ -22,7 +22,4 @@ public interface IServiceChannel {
     public ResponseEntity<String> update(Channel channel);
 
     public ResponseEntity<String> delete(Integer id);
-
-    public ResponseEntity<List<Channel>> findByUserId(int id);
-
 }

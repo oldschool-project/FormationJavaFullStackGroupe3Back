@@ -67,18 +67,6 @@ public class ServiceUserImpl implements IServiceUser {
         return ResponseEntity.ok(user);
     }
 
-/*    @Override
-    public ResponseEntity<List<Message>> getMessagesForUser(int id) {
-        return serviceMessage.findByUserId(id);
-    }
-
-    }*/
-
-
-        @Override
-        public ResponseEntity<List<Channel>> getChannelsForUser(int id) {
-            return serviceChannel.findByUserId(id);
-        }
 
     @Override
     public ResponseEntity<List<User>> getUsersForChannel(int id) {
