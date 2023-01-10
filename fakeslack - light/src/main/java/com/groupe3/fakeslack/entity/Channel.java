@@ -8,13 +8,17 @@ import java.util.List;
 
 public class Channel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
     private String name;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_channel", joinColumns = @JoinColumn(name = "channel_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
+
+    @OneToMany
+    @JoinColumn(name = "message_id", referencedColumnName = "id")
+    private List<Message> messages;
 
 
     public Channel() {
@@ -58,6 +62,14 @@ public class Channel {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     @Override

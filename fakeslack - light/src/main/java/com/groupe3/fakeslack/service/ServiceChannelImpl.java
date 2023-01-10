@@ -6,6 +6,7 @@ import com.groupe3.fakeslack.entity.User;
 import com.groupe3.fakeslack.repository.IChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +17,9 @@ public class ServiceChannelImpl implements IServiceChannel {
     @Autowired
     private IChannelRepository repository;
 
-    @Autowired
+/*    @Autowired
     private ServiceUserImpl serviceUser;
-
+*/
     @Autowired
     private ServiceMessageImpl serviceMessage;
 
@@ -34,23 +35,19 @@ public class ServiceChannelImpl implements IServiceChannel {
 
     @Override
     public ResponseEntity<List<Channel>> findByUserId(int id) {
-        return ResponseEntity.ok(repository.findByUserId(id));
+        return ResponseEntity.ok(repository.findByUsers_Id(id));
     }
 
     @Override
     public ResponseEntity<List<Channel>> findByMessageId(int id) {
-        return ResponseEntity.ok(repository.findByMessageId(id));
+        return ResponseEntity.ok(repository.findByMessages_Id(id));
     }
 
+/*    @Override
+    public ResponseEntity<List<User>> getUsersForChannel(int id) { return serviceUser.getUsersForChannel(id); }
+*/
     @Override
-    public ResponseEntity<List<User>> getUsersForChannel(int id) {
-        return ResponseEntity.ok(serviceUser.findByChannelId(id));
-    }
-
-    @Override
-    public ResponseEntity<List<Message>> getMessagesForChannel(int id) {
-        return ResponseEntity.ok(serviceMessage.findByChannelId(id));
-    }
+    public ResponseEntity<List<Message>> getMessagesForChannel(int id) { return serviceMessage.findByChannelId(id); }
 
 
     @Override

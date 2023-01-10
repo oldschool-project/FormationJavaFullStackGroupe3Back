@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
     private String name;
 
@@ -22,6 +22,10 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "User_Channel", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "channel_id"))
     private List<Channel> channels;
+
+    @OneToMany
+    @JoinColumn(name = "message_id", referencedColumnName = "id")
+    private List<Message> messages;
 
     public User() {
     }
@@ -109,6 +113,14 @@ public class User {
 
     public void setChannels(List<Channel> channels) {
         this.channels = channels;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     @Override

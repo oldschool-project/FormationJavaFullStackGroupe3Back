@@ -12,6 +12,8 @@ public interface IServiceUser {
 
     public ResponseEntity<User> getById(int id);
 
+    ResponseEntity<List<User>> getUsersForChannel(int id);
+
     public ResponseEntity<String> create(User user);
 
     public ResponseEntity<String> update(User user);
@@ -20,7 +22,9 @@ public interface IServiceUser {
 
     public ResponseEntity<User> findByUsername(String name);
 
-    public ResponseEntity<List<Message>> getMessagesForUser(int id);
+//    public ResponseEntity<List<Message>> getMessagesForUser(int id);
 
     public ResponseEntity<List<Channel>> getChannelsForUser(int id);
+
+
 }

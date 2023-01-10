@@ -23,9 +23,9 @@ public interface IServiceMessage {
 
     public ResponseEntity<List<Message>> findByUserId(int userId);
 
-    public ResponseEntity<User> getUserForMessage(int id);
+/*    public ResponseEntity<User> getUserForMessage(int id);
 
-    public ResponseEntity<Channel> getChannelForMessage(int id);
+    public ResponseEntity<Channel> getChannelForMessage(int id);*/
 
 
 }

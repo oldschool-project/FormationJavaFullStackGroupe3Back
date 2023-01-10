@@ -10,6 +10,6 @@ import java.util.List;
 public interface IUserRepository extends JpaRepository<User, Integer> {
     User findByUsername(String username);
 
-    User findByMessage_id(int messageId);
-    List<User> findByChannel_id(int channelId);
+    User findByMessages_id(int messageId);
+    List<User> findByChannels_id(int channelId);
 }

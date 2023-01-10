@@ -46,7 +46,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "F:/Documents personnels/Formations professionnelles/M2i/GitHub/FormationJavaFullStackGroupe3Back/fakeslack",
+    "last_opened_file_path": "F:/IntelliJ/Workspace/fakeslack",
     "settings.editor.selected.configurable": "preferences.sourceCode"
   }
 }]]></component>
@@ -55,8 +55,10 @@
       <recent name="com.groupe3.fakeslack.security" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.fakeslack [spring-boot:run]">
     <configuration name="FakeslackApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.groupe3.fakeslack.FakeslackApplication" />
       <module name="fakeslack" />
       <extension name="coverage">
@@ -69,6 +71,62 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fakeslack [clean,install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="fakeslack [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.FakeslackApplication" />
+      <item itemvalue="Maven.fakeslack [clean,install]" />
+      <item itemvalue="Maven.fakeslack [spring-boot:run]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.FakeslackApplication" />

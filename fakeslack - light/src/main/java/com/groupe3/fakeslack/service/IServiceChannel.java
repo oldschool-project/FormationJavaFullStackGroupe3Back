@@ -6,9 +6,11 @@ import java.util.List;
 
 import com.groupe3.fakeslack.entity.Message;
 import com.groupe3.fakeslack.entity.User;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public interface IServiceChannel {
 
     public ResponseEntity<List<Channel>> getAll();
@@ -25,6 +27,7 @@ public interface IServiceChannel {
 
     public ResponseEntity<List<Channel>> findByMessageId(int id);
 
-    public List<User> getUsersForChannel(int id);
-    public List<Message> getMessagesForChannel(int id);
+/*    public ResponseEntity<List<User>> getUsersForChannel(int id);
+*/
+    public ResponseEntity<List<Message>> getMessagesForChannel(int id);
 }

@@ -19,8 +19,9 @@ public class ServiceUserImpl implements IServiceUser {
     @Autowired
     ServiceChannelImpl serviceChannel;
 
+/*
     @Autowired
-    ServiceMessageImpl serviceMessage;
+    ServiceMessageImpl serviceMessage;*/
 
     @Override
     public ResponseEntity<List<User>> getAll() {
@@ -70,17 +71,28 @@ public class ServiceUserImpl implements IServiceUser {
         return ResponseEntity.ok(user);
     }
 
-    @Override
+/*    @Override
     public ResponseEntity<List<Message>> getMessagesForUser(int id) {
         return serviceMessage.findByUserId(id);
     }
 
+    }*/
+
+
+        @Override
+        public ResponseEntity<List<Channel>> getChannelsForUser(int id) {
+            return serviceChannel.findByUserId(id);
+        }
 
     @Override
-    public ResponseEntity<List<Channel>> getChannelsForUser(int id) {
-        return serviceChannel.findByUserId(id);
-    }
+    public ResponseEntity<List<User>> getUsersForChannel(int id) {
 
+        List<User> users = repository.findByChannels_id(id);
+        if (users.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(users);
+    }
 
     /*
     @Override

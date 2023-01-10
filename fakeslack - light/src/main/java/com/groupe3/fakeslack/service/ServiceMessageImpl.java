@@ -17,11 +17,11 @@ public class ServiceMessageImpl implements IServiceMessage {
     @Autowired
     private IMessageRepository repository;
 
-    @Autowired
+/*    @Autowired
     private ServiceUserImpl userService;
 
     @Autowired
-    private ServiceChannelImpl channelService;
+    private ServiceChannelImpl channelService;*/
 
     @Override
     public ResponseEntity<List<Message>> getAll() {
@@ -55,17 +55,14 @@ public class ServiceMessageImpl implements IServiceMessage {
         return ResponseEntity.ok(messages);
     }
 
-    @Override
+/*    @Override
     public ResponseEntity<User> getUserForMessage(int id) {
 
         Message message = repository.findById(id).orElse(null);
         if (message == null) {
             return ResponseEntity.notFound().build();
         }
-
-        int userId = message.getUserId();
-
-        return userService.getById(userId);
+        return userService.getById(message.getUser().getId());
     }
 
     @Override
@@ -75,11 +72,8 @@ public class ServiceMessageImpl implements IServiceMessage {
         if (message == null) {
             return ResponseEntity.notFound().build();
         }
-
-        int channelId = message.getChannelId();
-
-        return channelService.getById(channelId);
-    }
+        return channelService.getById(message.getChannel().getId());
+    }*/
 
 
     @Override
